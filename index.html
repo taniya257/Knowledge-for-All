@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge for All</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: #333;
+        }
+        header {
+            background-color: #b097fc;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            position: relative;
+        }
+        header img {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            height: 50px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin: 0.5rem 0 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .container {
+            padding: 2rem;
+        }
+        .about, .category, .upload-section, .contact-form {
+            background-color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .about h2, .category h2, .upload-section h2, .contact-form h2 {
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
+        .about p, .category p, .upload-section p, .contact-form p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        .social-links {
+            margin-top: 1.5rem;
+            margin-left: 2.5%;
+        }
+        .social-links a {
+            color: #3e0cd4;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1 rem;
+            
+        }
+        .social-links a:hover {
+            color: #240120;
+        }
+        .category-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .category-list li {
+            padding: 0.5rem 0;
+        }
+        .upload-section input, .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .upload-section button, .contact-form button {
+            background-color: #3e0cd4;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .upload-section button:hover, .contact-form button:hover {
+            background-color: #522cc6;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Screenshot_2024-07-10_204758-removebg-preview.png" alt="Logo">
+        <h1>Knowledge for All</h1>
+        <p>Your open library to share and discover knowledge</p>
+    </header>
+    
+    <nav>
+        <div class="dropdown">
+            <a href="#about">About</a>
+        </div>
+        <div class="dropdown">
+            <a href="#categories">Categories</a>
+            <div class="dropdown-content">
+                <a href="#science">Science</a>
+                <a href="#technology">Technology</a>
+                <a href="#engineering">Engineering</a>
+                <a href="#mathematics">Mathematics</a>
+                <a href="#literature">Literature</a>
+                <a href="#history">History</a>
+                <a href="#arts">Arts</a>
+                <a href="#other">Other</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#upload">Upload</a>
+            <div class="dropdown-content">
+                <a href="#upload">Upload a Book</a>
+                <a href="#upload-notes">Upload notes</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#contact">Contact</a>
+            <div class="dropdown-content">
+                <a href="#contact">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <section id="about" class="about">
+            <h2>About Knowledge for All</h2>
+            <p>Welcome to Knowledge for All, your open library to share and discover knowledge. Our mission is to provide a platform where people can upload and access a wide range of books across various categories.</p>
+            
+        </section>
+
+        <section id="categories" class="category hidden">
+            <h2>Book Categories</h2>
+            <ul class="category-list">
+                <li id="science">Science</li>
+                <li id="technology">Technology</li>
+                <li id="engineering">Engineering</li>
+                <li id="mathematics">Mathematics</li>
+                <li id="literature">Literature</li>
+                <li id="history">History</li>
+                <li id="arts">Arts</li>
+                <li id="other">Other</li>
+            </ul>
+        </section>
+        <section id="upload" class="upload-section hidden">
+            <h2>Upload a Book</h2>
+            <form id="uploadForm" action="#" method="post" enctype="multipart/form-data">
+                <input type="text" name="title" placeholder="Book Title" required>
+                <input type="text" name="author" placeholder="Author" required>
+                <input type="file" name="bookfile" accept="application/pdf" required>
+                <button type="submit">Upload Book</button>
+            </form>
+        </section>
+        <section id="upload-notes" class="upload-section hidden">
+            <h2>Upload Notes</h2>
+            <form id="uploadForm" action="#" method="post" enctype="multipart/form-data">
+                <input type="text" name="title" placeholder="Notes Title" required>
+                <input type="text" name="author" placeholder="Author" required>
+                <input type="file" name="notesfile" accept="application/pdf" required>
+                <button type="submit">Upload Notes</button>
+            </form>
+        </section>
+        <section id="contact" class="contact-form hidden">
+            <h2>Contact Us</h2>
+            <form id="contactForm" action="#" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+    <style>
+        .about{
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+
+        }
+    </style>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.querySelectorAll('.container section').forEach(section => {
+                    section.classList.add('hidden');
+                });
+                document.getElementById(targetId).classList.remove('hidden');
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Handle form submissions with alerts
+        document.getElementById('uploadForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Book uploaded successfully!');
+            this.reset();
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Message sent successfully!');
+            this.reset();
+        });
+    </script>
+    <footer>
+        <div class="social-links">
+            <h3>Connect with the Author:</h3>
+            <a href="https://www.linkedin.com/in/taniya-adhikari25074" target="_blank">LinkedIn</a>
+            <a href="https://github.com/taniya257" target="_blank">GitHub</a>
+            
+        </div>
+    </footer>
+</body>
+</html>
